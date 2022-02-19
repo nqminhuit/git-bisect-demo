@@ -26,18 +26,32 @@ export default function Layout() {
       <h3>This is git bisect demo</h3>
 
       <div>
-        <input type="button" className="btn btn-primary" value="Random String" onClick={() => generateRandomString()} />
+        <input
+          type="button"
+          className="btn btn-primary"
+          value="Random String"
+          onClick={() => generateRandomString()} />
         <span className="ms-3">{randomStrings.map(str => " " + str).toString().trim()}</span>
       </div>
 
       <div className="mt-3 form-check">
-        <input type="checkbox" className="form-check-input" id="checkedSortNumber" onClick={e => setCheckedStringNumber(e.target.checked)} />
+        <input
+          type="checkbox"
+          className="form-check-input"
+          id="checkedSortNumber"
+          checked={checkedStringNumber}
+          onChange={e => setCheckedStringNumber(e.target.checked)} />
         <label className="form-check-label user-select-none" htmlFor="checkedSortNumber">Sort by string numbers:</label>
         <span className="ms-3 fw-bold">{sortByNumberString.map(str => " " + str).toString().trim()}</span>
       </div>
 
       <div className="mt-2 form-check">
-        <input type="checkbox" className="form-check-input" id="checkedSortString" onClick={e => setCheckedString(e.target.checked)} />
+        <input
+          type="checkbox"
+          className="form-check-input"
+          id="checkedSortString"
+          checked={checkedString}
+          onChange={e => setCheckedString(e.target.checked)} />
         <label className="form-check-label user-select-none" htmlFor="checkedSortString">Sort by strings:</label>
         <span className="ms-3 fw-bold">{sortString.map(str => " " + str).toString().trim()}</span>
       </div>
@@ -51,6 +65,8 @@ export default function Layout() {
       arr.push(fromArray[index]);
     }
     setRandomStrings(arr);
+    setCheckedString(false);
+    setCheckedStringNumber(false);
   }
 
   function sortStringNumber(strArr = []) {
