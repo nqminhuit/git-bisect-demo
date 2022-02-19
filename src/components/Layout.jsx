@@ -58,7 +58,7 @@ export default function Layout() {
     </div>
   );
 
-  function generateRandomString(num = 10) {
+  function generateRandomString(num = 15) {
     const arr = [];
     for (let i = 0; i < num; i++) {
       const index = getRandomInt(0, fromArray.length);
