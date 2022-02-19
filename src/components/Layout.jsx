@@ -21,13 +21,19 @@ export default function Layout() {
       </div>
 
       <div className="mt-3">
-        <input type="button" className="btn btn-primary" value="Sort Number" onClick={() => sortStringNumber(randomStrings)} />
-        <span className="ms-3">{sortByNumberString.map(str => " " + str).toString().trim()}</span>
+        <div className="form-check">
+          <input type="checkbox" className="form-check-input" id="checkedSortNumber" onClick={() => sortStringNumber(randomStrings)} />
+          <label className="form-check-label" for="checkedSortNumber">Sort by string numbers:</label>
+          <span className="ms-3">{sortByNumberString.map(str => " " + str).toString().trim()}</span>
+        </div>
       </div>
 
-      <div className="mt-3">
-        <input type="button" className="btn btn-primary" value="Sort String" onClick={() => sortStrings(randomStrings)} />
-        <span className="ms-3">{sortString.map(str => " " + str).toString().trim()}</span>
+      <div className="mt-2">
+        <div className="form-check">
+          <input type="checkbox" className="form-check-input" id="checkedSortString" onClick={() => sortStrings(randomStrings)} />
+          <label className="form-check-label">Sort by strings:</label>
+          <span className="ms-3">{sortString.map(str => " " + str).toString().trim()}</span>
+        </div>
       </div>
     </div>
   );
