@@ -14,19 +14,20 @@ export default function Layout() {
   return (
     <div className="container mt-3">
       <h3>This is git bisect demo</h3>
+
       <div>
         <input type="button" className="btn btn-primary" value="Random String" onClick={() => generateRandomString()} />
-        <span className="ms-3">{randomStrings.map(str => str + ", ")}</span>
+        <span className="ms-3">{randomStrings.map(str => " " + str).toString().trim()}</span>
       </div>
 
       <div className="mt-3">
-        <input type="button" className="btn btn-primary" value="Sort Number String" onClick={() => sortStringNumber(randomStrings)} />
-        <span className="ms-3">{sortByNumberString.map(str => str + ", ")}</span>
+        <input type="button" className="btn btn-primary" value="Sort Number" onClick={() => sortStringNumber(randomStrings)} />
+        <span className="ms-3">{sortByNumberString.map(str => " " + str).toString().trim()}</span>
       </div>
 
       <div className="mt-3">
-        <input type="button" className="btn btn-primary" value="Sort String Values" onClick={() => sortStrings(randomStrings)} />
-        <span className="ms-3">{sortString.map(str => str + ", ")}</span>
+        <input type="button" className="btn btn-primary" value="Sort String" onClick={() => sortStrings(randomStrings)} />
+        <span className="ms-3">{sortString.map(str => " " + str).toString().trim()}</span>
       </div>
     </div>
   );
