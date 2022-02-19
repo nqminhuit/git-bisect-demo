@@ -5,6 +5,7 @@ export default function Layout() {
 
   const [randomStrings, setRandomStrings] = useState([]);
   const [sortByNumberString, setSortByNumberString] = useState([]);
+  const [sortString, setSortString] = useState([]);
 
   const fromArray = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
     "zero", "hello", "hi", "good", "afternoon", "git", "bisect", "demonstration", "central", "management",
@@ -17,9 +18,15 @@ export default function Layout() {
         <input type="button" className="btn btn-primary" value="Random String" onClick={() => generateRandomString()} />
         <span className="ms-3">{randomStrings.map(str => str + ", ")}</span>
       </div>
+
       <div className="mt-3">
         <input type="button" className="btn btn-primary" value="Sort Number String" onClick={() => sortStringNumber(randomStrings)} />
         <span className="ms-3">{sortByNumberString.map(str => str + ", ")}</span>
+      </div>
+
+      <div className="mt-3">
+        <input type="button" className="btn btn-primary" value="Sort String Values" onClick={() => sortStrings(randomStrings)} />
+        <span className="ms-3">{sortString.map(str => str + ", ")}</span>
       </div>
     </div>
   );
@@ -40,10 +47,18 @@ export default function Layout() {
 
     const res = strArr.map(convertStringToNumber)
       .filter(i => i !== undefined)
-      .sort((a, b) => a - b)
+      .sort((a, b) => a + b)
       .map(convertNumberToString);
 
     setSortByNumberString(res);
+  }
+
+  function sortStrings(strArr = []) {
+    if (strArr.length < 1) {
+      return;
+    }
+
+    setSortString(strArr.slice().sort());
   }
 
 }
