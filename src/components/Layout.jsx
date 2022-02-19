@@ -33,7 +33,7 @@ export default function Layout() {
       <div className="mt-3">
         <div className="form-check">
           <input type="checkbox" className="form-check-input" id="checkedSortNumber" onClick={e => setCheckedStringNumber(e.target.checked)} />
-          <label className="form-check-label" htmlFor="checkedSortNumber">Sort by string numbers:</label>
+          <label className="form-check-label user-select-none" htmlFor="checkedSortNumber">Sort by string numbers:</label>
           <span className="ms-3">{sortByNumberString.map(str => " " + str).toString().trim()}</span>
         </div>
       </div>
@@ -41,7 +41,7 @@ export default function Layout() {
       <div className="mt-2">
         <div className="form-check">
           <input type="checkbox" className="form-check-input" id="checkedSortString" onClick={e => setCheckedString(e.target.checked)} />
-          <label className="form-check-label" htmlFor="checkedSortString">Sort by strings:</label>
+          <label className="form-check-label user-select-none" htmlFor="checkedSortString">Sort by strings:</label>
           <span className="ms-3">{sortString.map(str => " " + str).toString().trim()}</span>
         </div>
       </div>
