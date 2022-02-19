@@ -1,4 +1,5 @@
 # Setup:
+!!!WARNING: this branch is not working due to a serious hidden bug!!!
 
 Checkout `master` branch
 ```shell script
@@ -69,3 +70,23 @@ Date:   Sat Feb 19 14:21:11 2022 +0700
 ```
 
 reference: https://git-scm.com/docs/git-bisect
+
+# Automatically find bug with `git bisect run`
+
+```shell script
+git bisect start; git bisect bad; git bisect good 6608f5232c78fd332f1e123af016b0831ce3c62b
+git bisect run /path/to/file/auto-bisect.sh
+```
+
+```
+0f5582f64cb6b5526cf02b35f083b555fa444417 is the first bad commit
+commit 0f5582f64cb6b5526cf02b35f083b555fa444417
+Author: joker <joker@clown.com>
+Date:   Sat Feb 19 16:33:48 2022 +0700
+
+    clean UP =]]]
+
+ package.json | 2 --
+ 1 file changed, 2 deletions(-)
+bisect run success
+```
