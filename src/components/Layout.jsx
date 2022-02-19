@@ -48,7 +48,7 @@ export default function Layout() {
 
     const res = strArr.map(convertStringToNumber)
       .filter(i => i !== undefined)
-      .sort((a, b) => a + b)
+      .sort((a, b) => a - b)
       .map(convertNumberToString);
 
     setSortByNumberString(res);
